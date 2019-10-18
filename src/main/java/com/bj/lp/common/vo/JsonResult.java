@@ -11,7 +11,6 @@ public class JsonResult implements Serializable {
 //    正确数据
     private  Object data;
 
-
     public JsonResult(String message) {
         this.message = message;
     }
