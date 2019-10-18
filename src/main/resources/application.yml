@@ -7,7 +7,6 @@ server:
   servlet:
     context-path: /
 
-
 #spring
 spring:
   datasource:

@@ -21,6 +21,7 @@ public class JsonResult implements Serializable {
     }
 
     public JsonResult(int state, String message) {
+
         this.state = state;
         this.message = message;
     }

@@ -22,6 +22,7 @@ body::-webkit-scrollbar-thumb{
 @media (min-width: 770px) {
   .navbar-expand-sm {
     -webkit-box-orient: horizontal;
+
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
