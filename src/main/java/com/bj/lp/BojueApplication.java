@@ -10,5 +10,4 @@ public class BojueApplication {
     {
         SpringApplication.run(BojueApplication.class, args);
     }
-
 }
