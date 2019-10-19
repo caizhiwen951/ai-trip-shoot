@@ -10,5 +10,6 @@ public class GlobalExceptionHandler {
     public JsonResult doHandleRuntimeException(RuntimeException e) {
         e.printStackTrace();
         return  new JsonResult(e);
+
     }
 }
