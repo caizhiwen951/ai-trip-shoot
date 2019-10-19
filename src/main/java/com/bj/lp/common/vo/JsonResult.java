@@ -10,7 +10,6 @@ public class JsonResult implements Serializable {
     private  String message="ok";
 //    正确数据
     private  Object data;
-
     public JsonResult(String message) {
         this.message = message;
     }
