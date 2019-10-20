@@ -15,7 +15,7 @@ spring:
     username: root
     password:
   thymeleaf:
-    prefix: classpath:/templates/back/
+    prefix: classpath:/templates/
     suffix: .html
 
 mybatis:

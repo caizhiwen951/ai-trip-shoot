@@ -16,6 +16,10 @@ public class PageController {
         System.out.println(111);
         return moduleUI;
     }
+    @RequestMapping("index")
+    public String doIndexUI() {
+        return "BG521";
+    }
 
 
     @RequestMapping("chatUI")
