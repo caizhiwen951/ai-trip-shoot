@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎光临爱旅拍</title>
+    <meta charset="utf-8">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link rel="stylesheet" href="../static/css/code.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" media="all">
+
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+    #github-iframe {
+        position: fixed;
+        left: 32px;
+        top: 32px;
+    }
+    #area-render {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .links-unordered-list-first {
+        position: absolute;
+        right: -25px;
+        top: -30px;
+    }
+
+</style>
+<body>
+<section class="main">
+    <div id="github-iframe"></div>
+    <div id="area-render"></div>
+    <div class="layer">
+        <div class="bottom-grid">
+            <div class="links aahad1">
+                <ul class="links-unordered-list-first">
+                    <li class="active">
+                        <a>已有账号?</a>
+                        <a href="test.html">请登录</a>
+                        <a href="#" class="">关于我们</a>
+                        <a href="#" class="">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-w3ls">
+            <div class="content-bottom">
+                <form>
+
+                    <div class="field-group">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input class="newPassword" autocomplete="off" name="password" id="myInput" type="Password"
+                                   placeholder="请设置新密码">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input class="newPasswordAgain" autocomplete="off" name="password" id="myTnputToo" type="Password"
+                                   placeholder="请确认新密码">
+                        </div>
+                    </div>
+                    <div class="wthree-field1">
+                        <button type="button" class="btn NN">确认!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-grid1">
+            <div class="links">
+                <ul class="links-unordered-list">
+
+                    <li class="">
+                        <a href="#" class="">隐私政策</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">使用条款</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>2019. All rights reserved | Design by
+                    <a href="http://w3layouts.com">ZZF</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../static/css/jquery/dist/jquery.js"></script>
+<script type="text/javascript" color="2,5,6" pointColor="2,0,100" opacity='1.0' zIndex="-2" count="150"
+        src="../static/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="../static/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $(".NN").click(All);
+    });
+    debugger;
+    function All() {
+        var params = {
+            newPassword: $(".newPassword").val(),
+            newPasswordAgain: $(".newPasswordAgain").val()
+    };
+        if (params.newPassword !== params.newPasswordAgain) {
+            alert("两次密码输入不一致");
+            return;
+        }
+        var url = "updatePassword";
+        $.post(url, params, function (result) {
+            if (result.state === 1) {
+                alert("修改密码成功");
+                location.href = "/test.html";
+            }
+        });
+    }
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '0,0,11',
+        count: 200
+    });
+</script>
+</body>
+</html>

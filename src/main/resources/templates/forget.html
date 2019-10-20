@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    <meta charset="utf-8">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+<!--    <script src="./css/jquery/dist/snow.js"></script>-->
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" media="all">
+    <!--自测css-->
+    <link rel="stylesheet" href="../static/css/forget.css" type="text/css" media="all">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    #github-iframe {
+        position: fixed;
+        left: 32px;
+        top: 32px;
+    }
+
+    #area-render {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .links-unordered-list-first {
+        position: absolute;
+        right: -25px;
+        top: -30px;
+    }
+
+</style>
+<body>
+<section class="main">
+    <div id="github-iframe"></div>
+    <div id="area-render"></div>
+    <div class="layer">
+        <div class="bottom-grid">
+            <div class="links aahad1">
+                <ul class="links-unordered-list-first">
+                    <li class="active">
+                        <a>已有账号?</a>
+                        <a href="test.html">请登录</a>
+                        <a href="#" class="">关于我们</a>
+                        <a href="#" class="">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-w3ls">
+            <div class="content-bottom">
+                <form>
+                    <div class="field-group-phone">
+                        <div class="wthree-field">
+                            <input class="RegisterTel" autocomplete="off"   name="phone" id="myphone" type="text" placeholder="请输入手机号">&nbsp;
+                        </div>
+                    </div>
+                    <div class="message-style">
+                        <button class="send-message" type="button">发送验证码</button>
+                    </div>
+                    <div class="form .field-group-phone">
+                        <input class="okok Code" autocomplete="off" placeholder="请输入验证码">
+                    </div>
+                    <div class="wthree-field1">
+                        <button type="button" class="btn btnn">确认!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-grid1">
+            <div class="links">
+                <ul class="links-unordered-list">
+
+                    <li class="">
+                        <a href="#" class="">隐私政策</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">使用条款</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>2019. All rights reserved | Design by
+                    <a href="http://w3layouts.com">ZZF</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../static/css/jquery/dist/jquery.js"></script>
+<script type="text/javascript" color="2,5,6" pointColor="2,0,100" opacity='1.0' zIndex="-2" count="150"
+        src="../static/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="../static/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+
+
+
+    $(function () {
+        $(".send-message").click(doSendPhone);
+        $(".btnn").click(doNext);
+    });
+
+    function doNext() {
+        var params = {
+            RegisterTel: $(".RegisterTel").val(),
+            Code: $(".Code").val()
+        };
+        if (params.Code === null || params.Code === '') {
+            alert("验证码不能为空");
+            return;
+        }
+
+        /** 点击确认时 对手机号进行数据库查询 是否存在该用户的手机号 ,
+         * 如果没有则跳出请用户注册页面 http://localhost/zctest.html
+         * 如果存在这个手机号则进行下一步,跳转修改登陆密码页面*/
+
+        /**修改密码的跳转判断 , 对用户输入的验证码进行判断, */
+        var url = "getCode";
+        debugger;
+        $.post(url, params, function (result) {
+            if (result.state === 1) {
+                alert("验证成功,即将跳转修改密码页面");
+                location.href = "/code.html";
+            }
+        });
+    }
+    function doSendPhone() {
+        var params = {
+            RegisterTel: $(".RegisterTel").val()
+        };
+        if (params.RegisterTel === null || params.RegisterTel === '') {
+            alert("手机号不能为空");
+            return;
+        }
+        var url = "findNumber";
+        $.getJSON(url, params, function (result) {
+            if (result.state === 1) {
+
+            } else {
+                /**---------------数据库中不存在此手机号-------------------*/
+                alert(result.message);
+                location.href = "/zctest.html";
+                return;
+            }
+            var url = "sendMessage";
+            $.post(url, params, function (result) {
+                if (result.state === 1) {
+                    alert("验证码已发送,请注意查收");
+                } else {
+                    alert(result.message);
+                }
+            });
+        });
+    }
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '0,0,11',
+        count: 200
+    });
+</script>
+
+</body>
+</html>
