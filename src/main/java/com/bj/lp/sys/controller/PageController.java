@@ -15,4 +15,10 @@ public class PageController {
         return moduleUI;
     }
 
+
+    @RequestMapping("chatUI")
+    public String chatUI(){
+        return "../chat-list";
+    }
+
 }
