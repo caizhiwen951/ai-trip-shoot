@@ -13,6 +13,7 @@ public class PageController {
     public String doModuleUI(
             @PathVariable String moduleUI) {
         System.out.println(123);
+        System.out.println(111);
         return moduleUI;
     }
 
