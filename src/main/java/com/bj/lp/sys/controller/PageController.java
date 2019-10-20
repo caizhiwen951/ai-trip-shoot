@@ -12,6 +12,7 @@ public class PageController {
     @RequestMapping("{moduleUI}")
     public String doModuleUI(
             @PathVariable String moduleUI) {
+        System.out.println(123);
         return moduleUI;
     }
 
