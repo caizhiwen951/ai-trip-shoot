@@ -11,7 +11,7 @@ server:
 #spring
 spring:
   datasource:
-    url: jdbc:mysql:///login?characterEncoding=utf8&serverTimezone=GMT
+    url: jdbc:mysql://176.55.15.217/ailp?characterEncoding=utf8&serverTimezone=GMT
     username: root
     password: root
   thymeleaf:
