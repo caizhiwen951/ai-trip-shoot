@@ -12,15 +12,12 @@ public class PageController {
     @RequestMapping("{moduleUI}")
     public String doModuleUI(
             @PathVariable String moduleUI) {
-        System.out.println(123);
-        System.out.println(111);
         return moduleUI;
     }
     @RequestMapping("index")
     public String doIndexUI() {
         return "index";
     }
-
 
     @RequestMapping("chatUI")
     public String chatUI(){
