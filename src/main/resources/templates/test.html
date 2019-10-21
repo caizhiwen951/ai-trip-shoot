@@ -229,7 +229,7 @@
                 document.getElementById('password').value = psd;
                 if (nm !== "" && psd !== "") {
                     // document.forms[0].checkbox.checked = true;
-                    document.getElementById('remember_password').checked = true;
+                    document.getElementById('remember').checked = true;
                 }
             }
         }
@@ -248,12 +248,13 @@
         };
         var url = "findUsername";
         $.post(url, params, function (result) {
+            console.log(result);
             if (result.state === 1) {
                 alert(result.message);
-                location.href = "/index.html";
+               location.href = "/index.html";
             } else {
                 alert(result.message);
-                location.href ="/test.html";
+               location.href ="/test.html";
             }
         });
     }
@@ -263,8 +264,6 @@
         color: '0,0,11',
         count: 200,
     });
-
-
 </script>
 </body>
 </html>
