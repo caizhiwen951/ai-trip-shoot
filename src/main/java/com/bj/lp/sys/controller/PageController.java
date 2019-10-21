@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class PageController {
-
-
-
     @RequestMapping("{moduleUI}")
     public String doModuleUI(
             @PathVariable String moduleUI) {

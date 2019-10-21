@@ -352,7 +352,7 @@ return (msw << 16) | (lsw & 0xffff)
 */
 function bitRotateLeft (num, cnt) {
 return (num << cnt) | (num >>> (32 - cnt))
-}
+}desc
 
 /*
 * These functions implement the four basic operations the algorithm uses.

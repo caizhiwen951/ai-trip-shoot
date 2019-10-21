@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bj.lp.sys.dao.SysLensManDao">
+    <insert id="saveLensMan" >
+        insert  into lens_man (mid,mname,mphone,mjob,mpin) values
+        (null,#{mname},#{mphone},#{mjob},#{mpin})
+
+
+    </insert>
+
+    </mapper>
