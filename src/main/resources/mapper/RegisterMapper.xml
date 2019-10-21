@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bj.lp.sys.dao.UserDao">
+    <!--                                          查询新增用户是否存在数据库的sql语句                                        -->
+                <select id="doRegisterFind" resultType="com.bj.lp.sys.entity.User">
+                    select * from login_customers where
+                    customers_username=#{RegisterUsername}
+                    or
+                    customers_tel=#{RegisterTel};
+                </select>
+
+    <!--                                           用户进行注册时的数据写入sql语句                                           -->
+                <insert id="doRegister">
+                    insert into login_customers values
+                    (null,
+                    #{RegisterUsername},
+                    #{RegisterPassword},
+                    #{RegisterTel},
+                    null,
+                     #{salt});
+                </insert>
+</mapper>
