@@ -207,7 +207,16 @@
     })
 
 </script>
-
+<div class="refloat" style="display: flex; flex-direction: column; width: 180px; cursor: pointer; top: 969.691px;">
+    <!-- <a href="https://tb.53kf.com/code/client/9005398/1" target="_blank"><img src="https://img.bj520.com/activity/180719/03.jpg"  style="display: block;"  ></a> -->
+    <img src="./index-files/03.jpg" data-toggle="modal" data-target="#hongbaoModal" style="
+    display: block;" id="changeRedPacketImg">
+    <!-- <img src="https://img.bj520.com/activity/180719/04.jpg" data-toggle="modal" data-target="#lunboModal"> -->
+    <a href="https://tb.53kf.com/code/client/9005398/1" target="_blank">
+        <img src="./index-files/02.jpg">
+    </a>
+    <img id="hongbaoGIF" src="./index-files/hongbaoGIF.gif" data-toggle="modal" data-target="#hongbaoModal" style="width: 100%;height: auto;display: none;">
+</div>
 
 
 <!-- 轮播图的弹窗（Modal） -->
@@ -287,6 +296,26 @@
     }
 </style>
 
+<script type="text/javascript">
+
+    //红包活动
+    // $(function(){
+    //     $('.step-1 a').on('click',function(){
+    //         $('.step-1').hide()
+    //         $('.step-2').show()
+    //     })
+    // });
+    $(function() {
+        $(window).resize(function() { hbfloat(); });
+        $(window).scroll(function() { hbfloat(); });
+    });
+    function hbfloat() {
+
+        $(".refloat").stop().animate({ "top": ($(window).height() + $(window).scrollTop() - ($(window).height() + $(".refloat").height()) / 2) < 350 ? 350 :
+                $(window).height() + $(window).scrollTop() - ($(window).height() + $(".refloat").height()) / 1.5  + 100
+        }, 600);
+    }
+</script>
 
 <!--header-->
 <div class="container-fluid index-container" style="padding-top: 80px;">

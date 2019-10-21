@@ -18,7 +18,7 @@ public class PageController {
     }
     @RequestMapping("index")
     public String doIndexUI() {
-        return "BG521";
+        return "index";
     }
 
 
