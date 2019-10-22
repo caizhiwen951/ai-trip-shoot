@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<head>
+    <title>欢迎注册</title>
+    <!-- Meta-Tags -->
+    <meta charset="utf-8">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--源文件css-->
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" media="all">
+    <!--自测css-->
+    <link rel="stylesheet" href="./zccss/style.css" type="text/css" media="all">
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    #github-iframe {
+        position: fixed;
+        left: 32px;
+        top: 32px;
+    }
+
+    #area-render {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .last-filed {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 35px;
+        width: 255px;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+
+    .okok {
+        background: transparent;
+        border: none;
+        padding: 16px 5px 10px 35px;
+        letter-spacing: 1px;
+        border-radius: 35px;
+        font-size: 17px;
+        color: #eeeeee;
+        outline: 0;
+        border: 2px #cccccc;
+
+    }
+    .aahad1 {
+
+    }
+
+    .links-unordered-list-first {
+        position: absolute;
+        right: -25px;
+        top: -30px;
+
+    }
+</style>
+<!-- //Head -->
+<!-- Body -->
+<body>
+<section class="main">
+    <div id="github-iframe"></div>
+    <div id="area-render"></div>
+    <div class="layer">
+        <div class="bottom-grid">
+            <div class="links aahad1">
+                <ul class="links-unordered-list-first">
+                    <li class="active">
+                        <a>已有账号?</a>
+                        <a href="test.html">请登录</a>
+                        <a href="#" class="">关于我们</a>
+                        <a href="#" class="">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-w3ls">
+            <div class="content-bottom">
+                <form>
+                    <div class="field-group">
+                        <span class="fa fa-user" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input autocomplete="off" class="RegisterUsername" name="text1" id="text1" type="text" value=""
+                                   placeholder="用户名" required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input class="RegisterPassword" name="password" id="myInput" type="Password"
+                                   placeholder="请设置密码">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input class="RegisterPassWordAgain" name="password" id="myTnputToo" type="Password"
+                                   placeholder="请确认密码">
+                        </div>
+                    </div>
+                    <div class="field-group-phone">
+                        <div class="wthree-field">
+                            <input autocomplete="off" class="RegisterTel" name="phone" id="myphone" type="text" placeholder="请输入手机号">&nbsp;
+                        </div>
+                    </div>
+                    <div class="message-style">
+                        <button class="send-message" type="button">发送验证码</button>
+                    </div>
+                    <div class="last-filed">
+                        <input class="okok" placeholder="请输入验证码">
+                    </div>
+                    <div class="wthree-field1">
+                        <button type="button" class="btn btnn">注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-grid1">
+            <div class="links">
+                <ul class="links-unordered-list">
+
+                    <li class="">
+                        <a href="#" class="">隐私政策</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">使用条款</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>2019. All rights reserved | Design by
+                    <a href="http://w3layouts.com">ZZF</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/css/jquery/dist/jquery.js"></script>
+<script type="text/javascript" color="2,5,6" pointColor="2,0,100" opacity='1.0' zIndex="-2" count="100"
+        src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $(".send-message").click(Message);
+        $(".btnn").click(register);
+
+    });
+
+    function Message() {
+        var params = {
+            RegisterTel: $(".RegisterTel").val()
+        };
+        if (!(/^1[3456789]\d{9}$/.test(params.RegisterTel))) {
+            alert("手机号码格式有误，请重填");
+            return;
+        }
+        var url = "sendMessage";
+        $.post(url, params, function (result) {
+            if (result.state === 1) {
+                alert("验证码发送成功");
+            }
+        });
+    }
+
+    function register() {
+
+        var params = {
+            RegisterUsername: $(".RegisterUsername").val(),
+            RegisterPassword: $(".RegisterPassword").val(),
+            RegisterTel: $(".RegisterTel").val(),
+            RegisterPassWordAgain: $(".RegisterPassWordAgain").val(),
+            okok: $(".okok").val()
+        };
+
+
+        if (params.RegisterUsername === null || params.RegisterUsername === '') {
+            alert("用户名不能为空");
+            return;
+        }
+        if (params.RegisterTel === "" || params.RegisterTel === null) {
+            alert("手机号不能为空");
+            return;
+        }
+        if (params.okok === null || params.okok === '') {
+            alert("验证码不能为空");
+            return;
+        }
+        if (params.RegisterPassword !== params.RegisterPassWordAgain) {
+            alert("两次输入密码不一致");
+            return;
+        }
+
+/** 手机号验证的正正则表达式------------------------------------------------------------------------------*/
+
+
+        var url = "doRegister";
+        $.post(url, params, function (result) {
+            RegisterException(result);
+        });
+
+        function RegisterException(result) {
+            if (result.state === 1) {
+                confirm("注册成功,是否跳转首页") ? location.href = "http://www.bj520.com" : "";
+            } else {
+                alert(result.message);
+
+            }
+        }
+    }
+
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '0,0,11',
+        count: 200
+    });
+</script>
+</body>
+
+</html>

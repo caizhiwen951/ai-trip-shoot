@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<head>
+    <title>欢迎来到爱旅拍</title>
+    <!-- Meta-Tags -->
+    <meta charset="utf-8">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <!-- //fonts -->
+    <link href="/css/snow.css" rel="stylesheet" type="text/css" media="all" /><!-- stylesheet -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="all">
+    <!-- //Font-Awesome-File-Links -->
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <!-- Google fonts -->
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    #github-iframe {
+        position: fixed;
+        left: 32px;
+        top: 32px;
+    }
+
+    #area-render {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .aahad {
+        position: absolute;
+        right: 10px;
+        bottom: 95px;
+    }
+</style>
+<!-- //Head -->
+<!-- Body -->
+<body onLoad="document.getElementById('username').focus();GetCookie();">
+<section class="main">
+    <div class="snow-container">
+        <div class="snow foreground"></div>
+        <div class="snow foreground layered"></div>
+        <div class="snow middleground"></div>
+        <div class="snow middleground layered"></div>
+        <div class="snow background"></div>
+        <div class="snow background layered"></div>
+    </div>
+    <div id="github-iframe"></div>
+    <div id="area-render"></div>
+    <div class="layer">
+        <div class="bottom-grid">
+            <div class="links aahad">
+                <ul class="links-unordered-list">
+                    <li class="active">
+                        <a href="https://www.bj520.com/#baidu&PZ" class="">首页</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="">关于我们</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-w3ls">
+            <div class="content-bottom">
+                <form method="post">
+                    <div class="field-group">
+                        <span class="fa fa-user" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input autocomplete="off" class="username" name="username" id="username" type="text" value=""
+                                   placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input class="password"  name="password" id="password" type="Password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn" onclick="checkInCorrect()">登录</button>
+                    </div>
+                    <ul class="list-login">
+                        <li class="switch-agileits">
+                            <label class="switch">
+                                <input type="checkbox" name="remember" id="remember">记住密码
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+                        <li>
+                            <a href="forget.html" class="text-right">忘记密码?</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                    <ul class="list-login-bottom">
+                        <li class="">
+                            <a href="zctest.html" class="">创建用户</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="text-right">获取帮助?</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-grid1">
+            <div class="links">
+                <ul class="links-unordered-list">
+
+                    <li class="">
+                        <a href="#" class="">隐私政策</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="">使用条款</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>2019. All rights reserved | Design by
+                    <a href="http://w3layouts.com">ZZF</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- jQuery 3 -->
+<script src="/css/jquery/dist/jquery-1.8.3.min.js"></script>
+<script src="/css/jquery/dist/jquery.cookie.js"></script>
+<script src="/css/jquery/dist/jquery.base64.js"></script>
+<script type="text/javascript" color="2,5,6" pointColor="2,0,100" opacity='1.0' zIndex="-2" count="50"
+        src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+
+
+
+    function checkInCorrect()      //判断用户名和密码是否为空
+    {
+        if (document.getElementById('username').value === "") {
+            alert('请输入用户名！');
+            document.getElementById('username').focus();
+            return false
+        }
+        if (document.getElementById('password').value === "") {
+            alert('请输入密码！');
+            document.getElementById('password').focus();
+            return false
+        }
+        else {
+            saveInfo();
+            return true;
+        }
+    }
+
+    saveInfo = function () {
+        try {
+            var isSave = document.getElementById('remember').checked;   //保存按键是否选中
+            if (isSave) {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                if (username !== "" && password !== "") {
+                    SetCookie(username, password);
+                }
+            } else {
+                SetCookie("", "");
+            }
+        } catch (e) {
+
+        }
+    };
+
+    function SetCookie(username, password) {
+        var Then = new Date();
+        Then.setTime(Then.getTime() + 1866240000000);
+        document.cookie = "username=" + username + "%%" + password + ";expires=" + Then.toGMTString();
+    }
+
+    function GetCookie() {
+        var nmpsd;
+        var nm;
+        var psd;
+        var cookieString = new String(document.cookie);
+        var cookieHeader = "username=";
+        var beginPosition = cookieString.indexOf(cookieHeader);
+        cookieString = cookieString.substring(beginPosition);
+        var ends = cookieString.indexOf(";");
+        if (ends !== -1) {
+            cookieString = cookieString.substring(0, ends);
+        }
+        if (beginPosition > -1) {
+            nmpsd = cookieString.substring(cookieHeader.length);
+            if (nmpsd !== "") {
+                beginPosition = nmpsd.indexOf("%%");
+                nm = nmpsd.substring(0, beginPosition);
+                psd = nmpsd.substring(beginPosition + 2);
+                document.getElementById('username').value = nm;
+                document.getElementById('password').value = psd;
+                if (nm !== "" && psd !== "") {
+                    // document.forms[0].checkbox.checked = true;
+                    document.getElementById('remember').checked = true;
+                }
+            }
+        }
+    }
+
+
+    $(function () {
+        $(".btn").click(doLogin);
+    });
+
+    function doLogin() {
+        var params = {
+            username: $(".username").val(),
+            password: $(".password").val(),
+            isRememberMe: $("#rememberId").prop("checked")
+        };
+        var url = "findUsername";
+        $.post(url, params, function (result) {
+            console.log(result);
+            if (result.state === 1) {
+                alert(result.message);
+               location.href = "/index.html";
+            } else {
+                alert(result.message);
+               location.href ="/test.html";
+            }
+        });
+    }
+
+
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '0,0,11',
+        count: 200,
+    });
+</script>
+</body>
+</html>

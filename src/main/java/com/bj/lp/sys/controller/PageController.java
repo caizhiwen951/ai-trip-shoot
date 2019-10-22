@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class PageController {
-
-
-
     @RequestMapping("{moduleUI}")
     public String doModuleUI(
             @PathVariable String moduleUI) {
@@ -16,7 +13,12 @@ public class PageController {
     }
     @RequestMapping("page")
     public String doIndexUI() {
-        return "BG521";
+        return "index";
+    }
+
+    @RequestMapping("chatUI")
+    public String chatUI(){
+        return "../chat-list";
     }
 
     @RequestMapping("lpcs")
