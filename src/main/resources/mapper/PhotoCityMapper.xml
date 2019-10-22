@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bj.lp.sys.dao.PhotoCityDao">
+    <select id="getTheSignPath" resultType="com.bj.lp.sys.entity.PhotoCity">
+        select imgUrl from picture_url where cityId=#{cityId}
+    </select>
+
+    <select id="getCityId" resultType="int">
+        select cityid from city_table where id=#{id}
+    </select>
+</mapper>

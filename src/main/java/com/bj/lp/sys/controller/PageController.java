@@ -14,9 +14,14 @@ public class PageController {
             @PathVariable String moduleUI) {
         return moduleUI;
     }
-    @RequestMapping("index")
+    @RequestMapping("page")
     public String doIndexUI() {
         return "BG521";
+    }
+
+    @RequestMapping("lpcs")
+    public String doIndexUI1() {
+        return "LPCS";
     }
 
 }
